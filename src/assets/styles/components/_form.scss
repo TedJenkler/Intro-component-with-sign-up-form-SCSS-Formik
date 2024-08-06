@@ -1,19 +1,23 @@
-main {
+.main-container {
     width: 100%;
     color: white;
     text-align: center;
-    height: 100vh;
+    height: 100%;
     padding: 5.5rem 1.5rem 4.25rem 1.5rem;
     background-image: url('/images/bg.png');
     background-attachment: fixed;
 
-    div {
+    .header-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         h1 {
             font-size: 1.75rem;
             font-weight: 700;
             word-spacing: -0.018125rem;
             line-height: 2.25rem;
             margin-bottom: 1rem;
+            max-width: 40rem;
         }
 
         p {
@@ -21,11 +25,19 @@ main {
             font-weight: 500;
             line-height: 1.625rem;
             margin-bottom: 4rem;
+            max-width: 40rem;
         }
     }
 
-    div {
-        div {
+    .form-and-promo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 40rem;
+        margin: 0 auto;
+
+        .promo-section {
             display: flex;
             padding: 1.125rem 0;
             align-items: center;
@@ -33,7 +45,6 @@ main {
             width: 100%;
             background-color: $blue;
             border-radius: 0.625rem;
-            border: none;
             margin-bottom: 1.5rem;
             box-shadow: 0 0.5rem 0.75rem rgba(0, 0, 0, 0.5);
 
@@ -42,8 +53,6 @@ main {
                 margin: 0 4.125rem;
                 color: white;
                 font-size: 0.9375rem;
-                word-spacing: 0.0175rem;
-                font-weight: 400;
                 line-height: 1.625rem;
 
                 span {
@@ -52,26 +61,71 @@ main {
             }
         }
 
-        form {
+        .form-container {
             width: 100%;
             background-color: white;
             border-radius: 0.625rem;
-            border: none;
             padding: 1.5rem;
             box-shadow: 0 0.5rem 0.75rem rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
 
-            input {
+            .field-container {
                 width: 100%;
-                min-height: 3.5rem;
-                border-radius: 0.3125rem;
-                border: 1px solid $border;
-                margin-bottom: 1rem;
-                padding: 0.9375rem 1.2125rem;
-                color: $black;
-                font-size: 0.875rem;
-                font-weight: 600;
-                word-spacing: 0.015625rem;
-                line-height: 1.625rem;
+                position: relative;
+                margin-bottom: 1.25rem;
+
+                .input-error {
+                    border-color: red;
+                  }
+
+                input {
+                    width: 100%;
+                    min-height: 3.5rem;
+                    border-radius: 0.3125rem;
+                    border: 1px solid $border;
+                    margin-bottom: 0.5rem;
+                    padding: 0.9375rem 2rem 0.9375rem 1.2125rem;
+                    color: $black;
+                    font-size: 0.875rem;
+                    font-weight: 600;
+                    line-height: 1.625rem;
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+
+                .error-container {
+                    position: absolute;
+                    width: 100%;
+                    height: 3.125rem;
+                    top: 25%;
+                    right: 0.5rem;
+                    display: flex;
+                    align-items: center;
+                    color: red;
+
+                    .alert-icon {
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        width: 24px;
+                        height: 24px;
+                        margin-right: 0.5rem;
+                    }
+                }
+
+                .error-message {
+                    position: absolute;
+                    top: 75%;
+                    right: 0;
+                    color: red;
+                    font-size: 0.6875rem;
+                    text-align: right;
+                    margin-top: 0.25rem;
+                }
             }
 
             button {
@@ -85,22 +139,20 @@ main {
                 color: white;
                 font-size: 0.9375rem;
                 font-weight: 600;
-                word-spacing: 0.0625rem;
-                line-height: 1.625rem;
                 margin-bottom: 0.5rem;
                 transition: all 0.2s ease;
                 box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
-                transform: translateY(0);
+
                 &:hover {
                     background-color: darken($green, 10%);
                 }
-            
+
                 &:active {
                     background-color: darken($green, 15%);
                     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
                     transform: translateY(0.25rem);
                 }
-            
+
                 &:focus {
                     outline: none;
                     box-shadow: 0 0 0 3px rgba($green, 0.3);
@@ -125,13 +177,13 @@ main {
 }
 
 @include respond-to('xl') {
-    main {
+    .main-container {
         display: flex;
         align-items: center;
         gap: 2.8125rem;
         padding: 7.5625rem 10.3125rem;
 
-        div {
+        .header-section {
             h1 {
                 font-size: 3.125rem;
                 word-spacing: -0.052rem;
@@ -145,22 +197,23 @@ main {
             }
         }
 
-        div {
-            div {
+        .form-and-promo {
+            .promo-section {
                 padding: 1.0625rem 0;
             }
 
-            form {
+            .form-container {
                 padding: 2.5rem;
 
-                input {
-                    margin-bottom: 1.25rem;
+                .field-container {
+                    .error-message {
+                        font-size: 0.75rem;
+                    }
                 }
 
                 p {
                     br {
                         display: none;
-                        position: absolute;
                     }
                 }
             }
