@@ -7,96 +7,162 @@ main {
     background-image: url('/images/bg.png');
     background-attachment: fixed;
 
-    h1 {
-        font-size: 1.75rem;
-        font-weight: 700;
-        word-spacing: -0.018125rem;
-        line-height: 2.25rem;
-        margin-bottom: 1rem;
-    }
+    div {
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            word-spacing: -0.018125rem;
+            line-height: 2.25rem;
+            margin-bottom: 1rem;
+        }
 
-    p {
-        font-size: 1rem;
-        font-weight: 500;
-        line-height: 1.625rem;
-        margin-bottom: 4rem;
+        p {
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.625rem;
+            margin-bottom: 4rem;
+        }
     }
 
     div {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        min-height: 5.5rem;
-        background-color: $blue;
-        border-radius: 0.625rem;
-        border: none;
-        margin-bottom: 1.5rem;
-        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+        div {
+            display: flex;
+            padding: 1.125rem 0;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            background-color: $blue;
+            border-radius: 0.625rem;
+            border: none;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0.5rem 0.75rem rgba(0, 0, 0, 0.5);
 
-        p {
-            text-align: center;
-            margin: 0 4.125rem;
-            color: white;
-            font-size: 0.9375rem;
-            word-spacing: 0.0175rem;
-            font-weight: 400;
-            line-height: 1.625rem;
+            p {
+                text-align: center;
+                margin: 0 4.125rem;
+                color: white;
+                font-size: 0.9375rem;
+                word-spacing: 0.0175rem;
+                font-weight: 400;
+                line-height: 1.625rem;
 
-            span {
-                font-weight: 700;
+                span {
+                    font-weight: 700;
+                }
+            }
+        }
+
+        form {
+            width: 100%;
+            background-color: white;
+            border-radius: 0.625rem;
+            border: none;
+            padding: 1.5rem;
+            box-shadow: 0 0.5rem 0.75rem rgba(0, 0, 0, 0.5);
+
+            input {
+                width: 100%;
+                min-height: 3.5rem;
+                border-radius: 0.3125rem;
+                border: 1px solid $border;
+                margin-bottom: 1rem;
+                padding: 0.9375rem 1.2125rem;
+                color: $black;
+                font-size: 0.875rem;
+                font-weight: 600;
+                word-spacing: 0.015625rem;
+                line-height: 1.625rem;
+            }
+
+            button {
+                cursor: pointer;
+                width: 100%;
+                min-height: 3.5rem;
+                background-color: $green;
+                padding: 0.9375rem 2.6875rem;
+                border-radius: 0.3125rem;
+                border: none;
+                color: white;
+                font-size: 0.9375rem;
+                font-weight: 600;
+                word-spacing: 0.0625rem;
+                line-height: 1.625rem;
+                margin-bottom: 0.5rem;
+                transition: all 0.2s ease;
+                box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+                transform: translateY(0);
+                &:hover {
+                    background-color: darken($green, 10%);
+                }
+            
+                &:active {
+                    background-color: darken($green, 15%);
+                    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
+                    transform: translateY(0.25rem);
+                }
+            
+                &:focus {
+                    outline: none;
+                    box-shadow: 0 0 0 3px rgba($green, 0.3);
+                }
+            }
+
+            p {
+                text-align: center;
+                font-size: 0.6875rem;
+                line-height: 1.3125rem;
+                font-weight: 500;
+                color: $grey;
+                margin-bottom: 0;
+
+                span {
+                    color: red;
+                    font-weight: 700;
+                }
             }
         }
     }
+}
 
-    form {
-        width: 100%;
-        background-color: white;
-        border-radius: 0.625rem;
-        border: none;
-        padding: 1.5rem;
-        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+@include respond-to('xl') {
+    main {
+        display: flex;
+        align-items: center;
+        gap: 2.8125rem;
+        padding: 7.5625rem 10.3125rem;
 
-        input {
-            width: 100%;
-            min-height: 3.5rem;
-            border-radius: 0.3125rem;
-            border: 1px solid $border;
-            margin-bottom: 1rem;
-            padding: 0.9375rem 1.2125rem;
-            color: $black;
-            font-size: 0.875rem;
-            font-weight: 600;
-            word-spacing: 0.015625rem;
-            line-height: 1.625rem;
+        div {
+            h1 {
+                font-size: 3.125rem;
+                word-spacing: -0.052rem;
+                line-height: 3.4375rem;
+                text-align: start;
+                margin-bottom: 2.5rem;
+            }
+
+            p {
+                text-align: start;
+            }
         }
 
-        button {
-            width: 100%;
-            min-height: 3.5rem;
-            background-color: $green;
-            padding: 0.9375rem 2.6875rem;
-            border-radius: 0.3125rem;
-            border: none;
-            color: white;
-            font-size: 0.9375rem;
-            font-weight: 600;
-            word-spacing: 0.0625rem;
-            line-height: 1.625rem;
-            margin-bottom: 0.5rem;
-        }
+        div {
+            div {
+                padding: 1.0625rem 0;
+            }
 
-        p {
-            text-align: center;
-            font-size: 0.6875rem;
-            line-height: 1.3125rem;
-            font-weight: 500;
-            color: $grey;
-            margin-bottom: 0;
+            form {
+                padding: 2.5rem;
 
-            span {
-                color: red;
-                font-weight: 700;
+                input {
+                    margin-bottom: 1.25rem;
+                }
+
+                p {
+                    br {
+                        display: none;
+                        position: absolute;
+                    }
+                }
             }
         }
     }

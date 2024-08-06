@@ -3,8 +3,11 @@ import { Formik, Field, Form } from "formik"
 function App() {
   return (
     <main>
-      <h1>Learn to code by watching others</h1>
-      <p>See how experienced developers solve problems in real-time. Watching scripted tutorials is great, but understanding how developers think is invaluable. </p>
+      <div>
+        <h1>Learn to code by watching others</h1>
+        <p>See how experienced developers solve problems in real-time. Watching scripted tutorials is great, but understanding how developers think is invaluable. </p>
+      </div>
+      <div>
       <div>
         <p><span>Try it free 7 days</span> then $20/mo. thereafter</p>
       </div>
@@ -21,6 +24,7 @@ function App() {
           <p>By clicking the button, you are agreeing to our <br /> <span>Terms and Services</span></p>
         </Form>
       </Formik>
+      </div>
     </main>
   )
 }
